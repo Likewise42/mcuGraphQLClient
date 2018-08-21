@@ -1,0 +1,82 @@
+<div *ngIf="movie">
+    <mat-card>
+        <h1>{{movie.title}}</h1>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Movie Info</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>ID: {{movie.id}}</p>
+            <p>Times Accessed: {{movie.timesAccessed}}</p>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Characters</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-grid-list cols="10" rowHeight="45px">
+                <mat-grid-tile *ngFor="let character of movie.characters">
+                    <button mat-stroked-button routerLink="/characters/{{character.id}}">{{character.name}}</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Actors</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-grid-list cols="10" rowHeight="45px">
+                <mat-grid-tile *ngFor="let actor of movie.actors">
+                    <button mat-stroked-button routerLink="/actors/{{actor.id}}">{{actor.name}}</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+<!-- <mat-card class="detail-card" *ngIf="movie">
+    <mat-card-header>
+        <mat-card-title>{{movie.title}}</mat-card-title>
+        <mat-card-subtitle>ID: {{movie.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Run Time: {{movie.runTime}}</p>
+        <p>Times Accessed: {{movie.timesAccessed}}</p>
+        <p>Actors:</p>
+        <mat-grid-list cols="10" rowHeight="45px">
+            <mat-grid-tile *ngFor="let actor of movie.actors">
+                <button mat-stroked-button routerLink="/actors/{{actor.id}}">{{actor.name}}</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <p>Characters:</p>
+        <mat-grid-list cols="10" rowHeight="45px">
+            <mat-grid-tile *ngFor="let character of movie.characters">
+                <button mat-stroked-button routerLink="/characters/{{character.id}}">{{character.name}}</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card> -->
+<!--
+    <p>Actors:</p>
+    <ul>
+        <li *ngFor="let actor of movie.actors">
+            <a routerLink="/actors/{{actor.id}}">
+                {{actor.name}}
+            </a>
+        </li>
+    </ul>
+    <p>Characters:</p>
+    <ul>
+        <li *ngFor="let character of movie.characters">
+            <a routerLink="/characters/{{character.id}}">
+                {{character.name}}
+            </a>
+        </li>
+    </ul>-->

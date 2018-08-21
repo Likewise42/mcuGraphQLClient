@@ -1,0 +1,7 @@
+<mat-nav-list>
+    <h3 mat-subheader>Actors</h3>
+    <mat-list-item routerLink="/actors/{{actor.id}}" *ngFor="let actor of actors">
+        <mat-icon mat-list-icon>note</mat-icon>
+        <h4 mat-line>{{actor.name}}</h4>
+    </mat-list-item>
+</mat-nav-list>

@@ -1,0 +1,31 @@
+
+.container {  
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.colSmall {
+    width: 16.666%;
+}
+
+.colLarge {
+    width: 66.666%;
+}
+
+.titleLink {
+    cursor: pointer;
+}
+
+/* .colCard {
+    width: 100%;
+    height: 90%
+}
+
+mat-grid-list {
+    height: auto;
+}
+
+mat-card {
+    min-height: 100%;
+}*/

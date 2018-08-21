@@ -1,0 +1,296 @@
+<mat-card>
+    <h1>Dashboard</h1>
+</mat-card>
+
+<div class="container">
+    <mat-card class="colSmall">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Most Popular</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div *ngIf="topData.topFiveMovies">
+                <h2>Movies:</h2>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/movies/{{movie.id}}" *ngFor="let movie of topData.topFiveMovies">
+                        {{movie.title}}
+                    </a>
+                </mat-nav-list>
+            </div>
+            <div *ngIf="topData.topFiveActors">
+                <h2>Actors:</h2>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/actors/{{actor.id}}" *ngFor="let actor of topData.topFiveActors">
+                        {{actor.name}}
+                    </a>
+                </mat-nav-list>
+            </div>
+            <div *ngIf="topData.topFiveCharacters">
+                <h2>Characters:</h2>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/characters/{{character.id}}" *ngFor="let character of topData.topFiveCharacters">
+                        {{character.name}}
+                    </a>
+                </mat-nav-list>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="colLarge">
+        <mat-card-header>
+            <h1>News</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla luctus purus in imperdiet. Integer ante nunc,
+                laoreet eu enim eu, mollis rhoncus velit. Suspendisse aliquet mollis maximus. Quisque efficitur sem sit amet
+                elit tincidunt, a tempus lorem scelerisque. Nulla accumsan ligula vel neque facilisis convallis. Quisque
+                viverra, est nec consequat convallis, dolor lectus lacinia nibh, tristique fermentum magna nisi sed dui.
+                Donec ut varius arcu. Aliquam placerat pretium neque vel vulputate. In nec varius felis, quis auctor nibh.
+                Donec vel pellentesque odio.
+            </p>
+            <p>
+                Nunc euismod consectetur felis, aliquam dapibus risus cursus ut. Vestibulum non pretium nibh. Nunc vel elit quis leo tincidunt
+                suscipit. Suspendisse felis lorem, dignissim vel consectetur et, sodales vitae tortor. Ut eget enim ac metus
+                fringilla finibus vitae nec magna. Sed nec eros maximus, placerat elit eget, posuere quam. Ut vitae facilisis
+                turpis. Nulla eu nisi ultricies, ultrices metus vitae, fringilla enim. Phasellus fermentum metus vitae interdum
+                sollicitudin. Donec ullamcorper feugiat sapien ut imperdiet. Sed commodo justo sit amet dignissim ullamcorper.
+                Maecenas commodo porttitor pellentesque. Praesent luctus faucibus tortor, in efficitur eros rhoncus scelerisque.
+            </p>
+            <p>
+                Sed gravida, ligula et lacinia bibendum, neque dolor malesuada purus, quis dignissim tellus metus at velit. Sed eget imperdiet
+                sem. Nunc aliquam, libero eget tristique varius, dolor dolor pretium est, sed mattis ligula diam sed libero.
+                Cras id leo mauris. Vivamus cursus libero non mi rutrum malesuada. Nunc non luctus nibh, et mattis ligula.
+                Nam at ipsum dignissim, convallis justo eu, malesuada dolor. Sed ac dictum velit.
+            </p>
+            <p>
+                Vestibulum risus leo, egestas nec tortor nec, scelerisque scelerisque ante. Pellentesque habitant morbi tristique senectus
+                et netus et malesuada fames ac turpis egestas. Sed id condimentum justo. In dui dolor, convallis eget nibh
+                nec, faucibus tempor nisi. Vivamus fringilla ante nunc, at sodales purus iaculis quis. Suspendisse potenti.
+                Praesent ut dapibus augue. Suspendisse ut luctus nunc. Donec ultrices iaculis nisi at euismod. Vestibulum
+                sagittis tristique dolor nec dapibus.
+            </p>
+            <p>
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis pellentesque commodo posuere.
+                Suspendisse dictum sapien in lacinia ullamcorper. Quisque neque arcu, semper a lectus id, fermentum imperdiet
+                urna. Suspendisse ac convallis turpis. Praesent id nulla at nisl iaculis iaculis. Duis fermentum nibh vitae
+                nisi mollis bibendum. Vestibulum congue vitae massa id bibendum. Praesent porta sapien in ullamcorper pharetra.
+                Aenean at consectetur dui, ac tristique ligula.
+            </p>
+            <p>
+                Nunc euismod consectetur felis, aliquam dapibus risus cursus ut. Vestibulum non pretium nibh. Nunc vel elit quis leo tincidunt
+                suscipit. Suspendisse felis lorem, dignissim vel consectetur et, sodales vitae tortor. Ut eget enim ac metus
+                fringilla finibus vitae nec magna. Sed nec eros maximus, placerat elit eget, posuere quam. Ut vitae facilisis
+                turpis. Nulla eu nisi ultricies, ultrices metus vitae, fringilla enim. Phasellus fermentum metus vitae interdum
+                sollicitudin. Donec ullamcorper feugiat sapien ut imperdiet. Sed commodo justo sit amet dignissim ullamcorper.
+                Maecenas commodo porttitor pellentesque. Praesent luctus faucibus tortor, in efficitur eros rhoncus scelerisque.
+            </p>
+            <p>
+                Sed gravida, ligula et lacinia bibendum, neque dolor malesuada purus, quis dignissim tellus metus at velit. Sed eget imperdiet
+                sem. Nunc aliquam, libero eget tristique varius, dolor dolor pretium est, sed mattis ligula diam sed libero.
+                Cras id leo mauris. Vivamus cursus libero non mi rutrum malesuada. Nunc non luctus nibh, et mattis ligula.
+                Nam at ipsum dignissim, convallis justo eu, malesuada dolor. Sed ac dictum velit.
+            </p>
+            <p>
+                Vestibulum risus leo, egestas nec tortor nec, scelerisque scelerisque ante. Pellentesque habitant morbi tristique senectus
+                et netus et malesuada fames ac turpis egestas. Sed id condimentum justo. In dui dolor, convallis eget nibh
+                nec, faucibus tempor nisi. Vivamus fringilla ante nunc, at sodales purus iaculis quis. Suspendisse potenti.
+                Praesent ut dapibus augue. Suspendisse ut luctus nunc. Donec ultrices iaculis nisi at euismod. Vestibulum
+                sagittis tristique dolor nec dapibus.
+            </p>
+            <p>
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis pellentesque commodo posuere.
+                Suspendisse dictum sapien in lacinia ullamcorper. Quisque neque arcu, semper a lectus id, fermentum imperdiet
+                urna. Suspendisse ac convallis turpis. Praesent id nulla at nisl iaculis iaculis. Duis fermentum nibh vitae
+                nisi mollis bibendum. Vestibulum congue vitae massa id bibendum. Praesent porta sapien in ullamcorper pharetra.
+                Aenean at consectetur dui, ac tristique ligula.
+            </p>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="colSmall">
+        <mat-card-header>
+            <mat-card-title class="titleLink" *ngIf="randomPageType =='movie'" routerLink="/movies/{{randomPageInfo.id}}">
+                <h1>{{randomPageInfo.title}}</h1>
+            </mat-card-title>
+            <mat-card-title class="titleLink" *ngIf="randomPageType =='actor'" routerLink="/actors/{{randomPageInfo.id}}">
+                <h1>{{randomPageInfo.name}}</h1>
+            </mat-card-title>
+            <mat-card-title class="titleLink" *ngIf="randomPageType =='character'" routerLink="/characters/{{randomPageInfo.id}}">
+                <h1>{{randomPageInfo.name}}</h1>
+            </mat-card-title>
+            <mat-card-subtitle>Random Page</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div *ngIf="randomPageInfo.runTime">
+                <p>Run Time: {{randomPageInfo.runTime}}</p>
+            </div>
+            <div *ngIf="randomPageInfo.age">
+                <p>Age: {{randomPageInfo.age}}</p>
+            </div>
+            <div *ngIf="randomPageInfo.timesAccessed">
+                <p>Times Accessed: {{randomPageInfo.timesAccessed}}</p>
+            </div>
+            <div *ngIf="randomPageInfo.id">
+                <p>ID: {{randomPageInfo.id}}</p>
+            </div>
+            <div *ngIf="randomPageInfo.movies">
+                <p>Movies:</p>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/movies/{{movie.id}}" *ngFor="let movie of randomPageInfo.movies">
+                        {{movie.title}}
+                    </a>
+                </mat-nav-list>
+            </div>
+            <div *ngIf="randomPageInfo.actors">
+                <p>Actors:</p>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/actors/{{actor.id}}" *ngFor="let actor of randomPageInfo.actors">
+                        {{actor.name}}
+                    </a>
+                </mat-nav-list>
+            </div>
+            <div *ngIf="randomPageInfo.characters">
+                <p>Characters:</p>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/characters/{{character.id}}" *ngFor="let character of randomPageInfo.characters">
+                        {{character.name}}
+                    </a>
+                </mat-nav-list>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<!-- 
+<mat-grid-list cols=6>
+    <mat-grid-tile colspan=1>
+        <mat-card class="colCard">
+            <h1>Dashboard</h1>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=4>
+        <mat-card class="colCard">
+            <h1>News</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla luctus purus in imperdiet. Integer ante nunc,
+                laoreet eu enim eu, mollis rhoncus velit. Suspendisse aliquet mollis maximus. Quisque efficitur sem sit amet
+                elit tincidunt, a tempus lorem scelerisque. Nulla accumsan ligula vel neque facilisis convallis. Quisque
+                viverra, est nec consequat convallis, dolor lectus lacinia nibh, tristique fermentum magna nisi sed dui.
+                Donec ut varius arcu. Aliquam placerat pretium neque vel vulputate. In nec varius felis, quis auctor nibh.
+                Donec vel pellentesque odio.
+            </p>
+            <p>
+                Nunc euismod consectetur felis, aliquam dapibus risus cursus ut. Vestibulum non pretium nibh. Nunc vel elit quis leo tincidunt
+                suscipit. Suspendisse felis lorem, dignissim vel consectetur et, sodales vitae tortor. Ut eget enim ac metus
+                fringilla finibus vitae nec magna. Sed nec eros maximus, placerat elit eget, posuere quam. Ut vitae facilisis
+                turpis. Nulla eu nisi ultricies, ultrices metus vitae, fringilla enim. Phasellus fermentum metus vitae interdum
+                sollicitudin. Donec ullamcorper feugiat sapien ut imperdiet. Sed commodo justo sit amet dignissim ullamcorper.
+                Maecenas commodo porttitor pellentesque. Praesent luctus faucibus tortor, in efficitur eros rhoncus scelerisque.
+            </p>
+            <p>
+                Sed gravida, ligula et lacinia bibendum, neque dolor malesuada purus, quis dignissim tellus metus at velit. Sed eget imperdiet
+                sem. Nunc aliquam, libero eget tristique varius, dolor dolor pretium est, sed mattis ligula diam sed libero.
+                Cras id leo mauris. Vivamus cursus libero non mi rutrum malesuada. Nunc non luctus nibh, et mattis ligula.
+                Nam at ipsum dignissim, convallis justo eu, malesuada dolor. Sed ac dictum velit.
+            </p>
+            <p>
+                Vestibulum risus leo, egestas nec tortor nec, scelerisque scelerisque ante. Pellentesque habitant morbi tristique senectus
+                et netus et malesuada fames ac turpis egestas. Sed id condimentum justo. In dui dolor, convallis eget nibh
+                nec, faucibus tempor nisi. Vivamus fringilla ante nunc, at sodales purus iaculis quis. Suspendisse potenti.
+                Praesent ut dapibus augue. Suspendisse ut luctus nunc. Donec ultrices iaculis nisi at euismod. Vestibulum
+                sagittis tristique dolor nec dapibus.
+            </p>
+            <p>
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis pellentesque commodo posuere.
+                Suspendisse dictum sapien in lacinia ullamcorper. Quisque neque arcu, semper a lectus id, fermentum imperdiet
+                urna. Suspendisse ac convallis turpis. Praesent id nulla at nisl iaculis iaculis. Duis fermentum nibh vitae
+                nisi mollis bibendum. Vestibulum congue vitae massa id bibendum. Praesent porta sapien in ullamcorper pharetra.
+                Aenean at consectetur dui, ac tristique ligula.
+            </p>
+            <p>
+                Nunc euismod consectetur felis, aliquam dapibus risus cursus ut. Vestibulum non pretium nibh. Nunc vel elit quis leo tincidunt
+                suscipit. Suspendisse felis lorem, dignissim vel consectetur et, sodales vitae tortor. Ut eget enim ac metus
+                fringilla finibus vitae nec magna. Sed nec eros maximus, placerat elit eget, posuere quam. Ut vitae facilisis
+                turpis. Nulla eu nisi ultricies, ultrices metus vitae, fringilla enim. Phasellus fermentum metus vitae interdum
+                sollicitudin. Donec ullamcorper feugiat sapien ut imperdiet. Sed commodo justo sit amet dignissim ullamcorper.
+                Maecenas commodo porttitor pellentesque. Praesent luctus faucibus tortor, in efficitur eros rhoncus scelerisque.
+            </p>
+            <p>
+                Sed gravida, ligula et lacinia bibendum, neque dolor malesuada purus, quis dignissim tellus metus at velit. Sed eget imperdiet
+                sem. Nunc aliquam, libero eget tristique varius, dolor dolor pretium est, sed mattis ligula diam sed libero.
+                Cras id leo mauris. Vivamus cursus libero non mi rutrum malesuada. Nunc non luctus nibh, et mattis ligula.
+                Nam at ipsum dignissim, convallis justo eu, malesuada dolor. Sed ac dictum velit.
+            </p>
+            <p>
+                Vestibulum risus leo, egestas nec tortor nec, scelerisque scelerisque ante. Pellentesque habitant morbi tristique senectus
+                et netus et malesuada fames ac turpis egestas. Sed id condimentum justo. In dui dolor, convallis eget nibh
+                nec, faucibus tempor nisi. Vivamus fringilla ante nunc, at sodales purus iaculis quis. Suspendisse potenti.
+                Praesent ut dapibus augue. Suspendisse ut luctus nunc. Donec ultrices iaculis nisi at euismod. Vestibulum
+                sagittis tristique dolor nec dapibus.
+            </p>
+            <p>
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis pellentesque commodo posuere.
+                Suspendisse dictum sapien in lacinia ullamcorper. Quisque neque arcu, semper a lectus id, fermentum imperdiet
+                urna. Suspendisse ac convallis turpis. Praesent id nulla at nisl iaculis iaculis. Duis fermentum nibh vitae
+                nisi mollis bibendum. Vestibulum congue vitae massa id bibendum. Praesent porta sapien in ullamcorper pharetra.
+                Aenean at consectetur dui, ac tristique ligula.
+            </p>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=1>
+        <mat-card class="colCard">
+            <mat-card-header>
+                <mat-card-title *ngIf="randomPageType =='movie'" routerLink="/movies/{{randomPageInfo.id}}">
+                    {{randomPageInfo.title}}
+                </mat-card-title>
+                <mat-card-title *ngIf="randomPageType =='actor'" routerLink="/actors/{{randomPageInfo.id}}">
+                    {{randomPageInfo.name}}
+                </mat-card-title>
+                <mat-card-title *ngIf="randomPageType =='character'" routerLink="/characters/{{randomPageInfo.id}}">
+                    {{randomPageInfo.name}}
+                </mat-card-title>
+                <mat-card-subtitle>Random Page</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngIf="randomPageInfo.runTime">
+                    <p>Run Time: {{randomPageInfo.runTime}}</p>
+                </div>
+                <div *ngIf="randomPageInfo.age">
+                    <p>Age: {{randomPageInfo.age}}</p>
+                </div>
+                <div *ngIf="randomPageInfo.timesAccessed">
+                    <p>Times Accessed: {{randomPageInfo.timesAccessed}}</p>
+                </div>
+                <div *ngIf="randomPageInfo.id">
+                    <p>ID: {{randomPageInfo.id}}</p>
+                </div>
+                <div *ngIf="randomPageInfo.movies">
+                    <p>Movies:</p>
+                    <mat-nav-list>
+                        <a mat-list-item routerLink="/movies/{{movie.id}}" *ngFor="let movie of randomPageInfo.movies">
+                            {{movie.title}}
+                        </a>
+                    </mat-nav-list>
+                </div>
+                <div *ngIf="randomPageInfo.actors">
+                    <p>Actors:</p>
+                    <mat-nav-list>
+                        <a mat-list-item routerLink="/actors/{{actor.id}}" *ngFor="let actor of randomPageInfo.actors">
+                            {{actor.name}}
+                        </a>
+                    </mat-nav-list>
+                </div>
+                <div *ngIf="randomPageInfo.characters">
+                    <p>Characters:</p>
+                    <mat-nav-list>
+                        <a mat-list-item routerLink="/characters/{{character.id}}" *ngFor="let character of randomPageInfo.characters">
+                            {{character.name}}
+                        </a>
+                    </mat-nav-list>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+-->
