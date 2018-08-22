@@ -6,8 +6,10 @@ const PORT = process.env.PORT || process.env.NODE_PORT || 4200;
 
 //app.use(express.static(__dirname + '/dist'));
 
+console.log(__dirname);
+
 app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/src/index.html');
+    res.sendFile(__dirname + '/dist/mcu-test/index.html');
 })
 
 app.listen(PORT, (err) => {
