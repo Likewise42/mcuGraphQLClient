@@ -4,11 +4,11 @@ let app = express();
 
 const PORT = process.env.PORT || process.env.NODE_PORT || 4200;
 
-//app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/mcu-test/'));
 
 console.log(__dirname);
 
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile(__dirname + '/dist/mcu-test/index.html');
 })
 
