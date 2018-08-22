@@ -9,10 +9,10 @@ import { McuGraphService } from '../mcu-graph.service';
 })
 export class DashboardComponent implements OnInit {
 
-    randomPageInfo = {};
+    randomPageInfo;
     randomPageType = '';
 
-    topData = {};
+    topData;
 
     constructor(private mcuGraphService: McuGraphService) { }
 
