@@ -22,7 +22,7 @@ export class McuGraphService {
 
     constructor(private http: HttpClient) { }
 
-    private url = 'http://localhost:4000/graphql';
+    private url = 'https://mcu-graphql-server.herokuapp.com/graphql';
 
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
