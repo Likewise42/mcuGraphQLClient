@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Movie } from './movie';
 import { Actor } from './actor';
 import { Character } from './character';
+import { environment } from '../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -20,11 +21,17 @@ const httpOptions = {
 
 export class McuGraphService{
 
+    private url = '';
+
     constructor(private http: HttpClient) { 
         console.log('init');
+        if(environment.production){// != undefined && process.env.NODE_ENV == 'production'){
+            this.url = 'https://mcu-graphql-server.herokuapp.com/graphql';
+        } else {
+            this.url = 'https://localhost:4000/graphQL';
+        }
     };
 
-    private url = 'https://mcu-graphql-server.herokuapp.com/graphql';
 
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
