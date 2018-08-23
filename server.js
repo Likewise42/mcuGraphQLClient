@@ -8,7 +8,7 @@ console.log(`process.env.node_env = ${process.env.NODE_ENV}`);
 
 app.use(express.static(__dirname + '/dist/mcu-test/'));
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
     res.sendFile(__dirname + '/dist/mcu-test/index.html');
 })
 

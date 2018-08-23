@@ -108,18 +108,16 @@
         </mat-card-content>
     </mat-card>
     <mat-card class="colSmall">
-        <mat-card-header>
-            <div *ngIf="randomPageInfo">
-                <mat-card-title class="titleLink" *ngIf="randomPageType =='movie'" routerLink="/movies/{{randomPageInfo.id}}">
-                    <h1>{{randomPageInfo.title}}</h1>
-                </mat-card-title>
-                <mat-card-title class="titleLink" *ngIf="randomPageType =='actor'" routerLink="/actors/{{randomPageInfo.id}}">
-                    <h1>{{randomPageInfo.name}}</h1>
-                </mat-card-title>
-                <mat-card-title class="titleLink" *ngIf="randomPageType =='character'" routerLink="/characters/{{randomPageInfo.id}}">
-                    <h1>{{randomPageInfo.name}}</h1>
-                </mat-card-title>
-            </div>
+        <mat-card-header *ngIf="randomPageInfo">
+            <mat-card-title class="titleLink" *ngIf="randomPageType =='movie'" routerLink="/movies/{{randomPageInfo.id}}">
+                <h1>{{randomPageInfo.title}}</h1>
+            </mat-card-title>
+            <mat-card-title class="titleLink" *ngIf="randomPageType =='actor'" routerLink="/actors/{{randomPageInfo.id}}">
+                <h1>{{randomPageInfo.name}}</h1>
+            </mat-card-title>
+            <mat-card-title class="titleLink" *ngIf="randomPageType =='character'" routerLink="/characters/{{randomPageInfo.id}}">
+                <h1>{{randomPageInfo.name}}</h1>
+            </mat-card-title>
             <mat-card-subtitle>Random Page</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content *ngIf="randomPageInfo">
