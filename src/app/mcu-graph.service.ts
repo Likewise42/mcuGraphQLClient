@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
@@ -18,9 +18,11 @@ const httpOptions = {
     providedIn: 'root'
 })
 
-export class McuGraphService {
+export class McuGraphService{
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { 
+        console.log('init');
+    };
 
     private url = 'https://mcu-graphql-server.herokuapp.com/graphql';
 
