@@ -28,7 +28,7 @@ export class McuGraphService{
         if(environment.production){// != undefined && process.env.NODE_ENV == 'production'){
             this.url = 'https://mcu-graphql-server.herokuapp.com/graphql';
         } else {
-            this.url = 'https://localhost:4000/graphQL';
+            this.url = 'http://localhost:4000/graphQL';
         }
     };
 
