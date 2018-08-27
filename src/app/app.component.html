@@ -1,60 +1,26 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav role="navigation">
-        <mat-nav-list>
-            <a mat-list-item routerLink="/dashboard" data-payxautoid="notPaychex.app.nav.dashboardLink">
-                <span class="label">Dashboard</span>
-            </a>
-            <a mat-list-item routerLink="/movies">
-                <span class="label">Movies</span>
-            </a>
-            <a mat-list-item routerLink="/actors">
-                <span class="label">Actors</span>
-            </a>
-            <a mat-list-item routerLink="/characters">
-                <span class="label">Characters</span>
-            </a>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar color="primary">
-            <div fxHide.gt-xs>
-                <button mat-icon-button>
-                    <mat-icon>menu</mat-icon>
-                </button>
-            </div>
-            <div>
-                <a>
-                    MCU GraphQL Test
-                </a>
-            </div>
-            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-                <ul fxLayout fxLayoutGap="20px" class="navigation-items">
-                    <li>
-                        <a routerLink="/dashboard">
-                            <span class="label">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/movies">
-                            <span class="label">Movies</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/actors">
-                            <span class="label">Actors</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/characters">
-                            <span class="label">Characters</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </mat-toolbar>
-        <main>
-        </main>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<!-- <nav class="navbar navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand">MCU Test</a>
+        <ul class="nav navbar-nav" routerLinkActive="active">
+            <li class="nav-item"><a class="nav-link" routerLink="dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="movies">Movies</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="actors">Actors</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="characters">Characters</a></li>
+        </ul>
+    </div>
+</nav> -->
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <a routerLink="dashboard">MCU Test</a>
+        <span class="spacer"></span>
+        <a class="nav-link" routerLink="dashboard">Dashboard</a>
+        <a class="nav-link" routerLink="movies">Movies</a>
+        <a class="nav-link" routerLink="actors">Actors</a>
+        <a class="nav-link" routerLink="characters">Characters</a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="toolbarStandIn"></div>
 
 <router-outlet></router-outlet> 
