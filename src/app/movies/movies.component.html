@@ -1,15 +1,11 @@
-<mat-nav-list>
-    <h3 mat-subheader>Movies</h3>
-    <mat-list-item  routerLink="/movies/{{movie.id}}" *ngFor="let movie of movies">
-        <mat-icon mat-list-icon>note</mat-icon>
-        <h4 mat-line>{{movie.title}}</h4>
-    </mat-list-item>
-</mat-nav-list>
+<mat-card>
+    <h1>Movies</h1>
+</mat-card>
 
-<!-- <ul class="movies">
-    <li *ngFor="let movie of movies">
-        <a routerLink="/movies/{{movie.id}}">
-            {{movie.title}}
-        </a>
-    </li>
-</ul> -->
+<mat-card>
+    <mat-card-content class="flexContent">
+        <div class="flexButton" *ngFor="let movie of movies">
+            <button mat-stroked-button routerLink="/movies/{{movie.id}}">{{movie.title}}</button>
+        </div>
+    </mat-card-content>
+</mat-card>

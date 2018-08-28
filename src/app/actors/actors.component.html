@@ -1,7 +1,11 @@
-<mat-nav-list>
-    <h3 mat-subheader>Actors</h3>
-    <mat-list-item routerLink="/actors/{{actor.id}}" *ngFor="let actor of actors">
-        <mat-icon mat-list-icon>note</mat-icon>
-        <h4 mat-line>{{actor.name}}</h4>
-    </mat-list-item>
-</mat-nav-list>
+<mat-card>
+    <h1>Actors</h1>
+</mat-card>
+
+<mat-card>
+    <mat-card-content class="flexContent">
+        <div class="flexButton" *ngFor="let actor of actors">
+            <button mat-stroked-button routerLink="/actors/{{actor.id}}">{{actor.name}}</button>
+        </div>
+    </mat-card-content>
+</mat-card>
