@@ -1,16 +1,4 @@
-<!-- <nav class="navbar navbar-fixed-top">
-    <div class="container">
-        <a class="navbar-brand">MCU Test</a>
-        <ul class="nav navbar-nav" routerLinkActive="active">
-            <li class="nav-item"><a class="nav-link" routerLink="dashboard">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="movies">Movies</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="actors">Actors</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="characters">Characters</a></li>
-        </ul>
-    </div>
-</nav> -->
-
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
     <mat-toolbar-row>
         <a routerLink="dashboard">MCU Test</a>
         <span class="spacer"></span>
@@ -23,4 +11,39 @@
 
 <div class="toolbarStandIn"></div>
 
-<router-outlet></router-outlet> 
+<router-outlet></router-outlet> -->
+<!-- Modified From Tomasz Chudzik from https://stackoverflow.com/questions/43200545/create-a-responsive-toolbar-using-angular-material*/ -->
+<div style="height: 100vh">
+    <mat-toolbar color="primary">
+        <div fxShow="true" fxHide.gt-sm="true">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <a mat-button class="companyName" routerLink="/dashboard">
+            <span>MCU Test</span>
+        </a>
+        <span class="spacer"></span>
+        <div fxShow="true" fxHide.lt-md="true">
+            <a mat-button routerLink="dashboard">Dashboard</a>
+            <a mat-button routerLink="movies">Movies</a>
+            <a mat-button routerLink="actors">Actors</a>
+            <a mat-button routerLink="characters">Characters</a>
+        </div>
+    </mat-toolbar>
+    <mat-sidenav-container >
+        <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+            <div class="toolbarStandIn"></div>
+            <div fxLayout="column">
+                <a mat-button routerLink="dashboard">Dashboard</a>
+                <a mat-button routerLink="movies">Movies</a>
+                <a mat-button routerLink="actors">Actors</a>
+                <a mat-button routerLink="characters">Characters</a>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+            <div class="toolbarStandIn"></div>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
