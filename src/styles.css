@@ -10,3 +10,15 @@ mat-card{
     margin: 24px;
 }
 
+mat-card-content.flexContent {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+mat-card-content >.flexButton {
+    margin: 10px;
+}
+
+mat-card-content.mat-card-content>:first-child, .mat-card>:first-child{
+    margin-top: 10px;
+}
