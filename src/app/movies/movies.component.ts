@@ -24,7 +24,6 @@ export class MoviesComponent implements OnInit {
         this.mcuGraphService.getAllMovies()
             .subscribe((returnData) => {
                 this.movies = returnData;
-
             });
     }
 }
