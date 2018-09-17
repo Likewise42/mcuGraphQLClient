@@ -66,6 +66,30 @@ export class McuGraphService{
                 id
             }
         });
+        
+
+        return this.http.post<any>(this.url, sendData, httpOptions).pipe(
+            map((response) => {
+                return response.data.movie;
+            }),
+            tap(_ => console.log(`got movie`)),
+            catchError(this.handleError<Movie>(`getMovie`))
+        );
+    }
+
+    addMovie(title: String, runTime: Number, actorList: [String], characterList: [String]): Observable<Movie> {
+        const sendString =`addMovie(title: title, runTime: runTime, actorList:actorList, characterList:characterList)`;
+
+        const sendData = JSON.stringify({
+            query: sendString,
+            variables: {
+                title,
+                runTime,
+                actorList,
+                characterList
+            }
+        });
+        
 
         return this.http.post<any>(this.url, sendData, httpOptions).pipe(
             map((response) => {

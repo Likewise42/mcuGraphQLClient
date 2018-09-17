@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 import { McuGraphService } from '../mcu-graph.service';
 
@@ -13,11 +13,36 @@ export class DashboardComponent implements OnInit {
     pageTypes = ['Movie', 'Actor', 'Character'];
 
     movies;
-    moviesControl = new FormControl();
+    moviesControl = new FormControl('', Validators.required);
+    movieTitleControl = new FormControl('', Validators.required);
+    movieRunTimeControl = new FormControl('', [Validators.required, Validators.min(1)]);
     actors;
-    actorsControl = new FormControl();
+    actorsControl = new FormControl('', Validators.required);
+    actorNameControl = new FormControl('', Validators.required);
+    actorAgeControl = new FormControl('', [Validators.required, Validators.min(1)]);
     characters;
-    charactersControl = new FormControl();
+    charactersControl = new FormControl('', Validators.required);
+    characterNameControl = new FormControl('', Validators.required);
+
+    movieForm = new FormGroup({
+        actors: this.actorsControl,
+        characters: this.charactersControl,
+        movieTitle: this.movieTitleControl,
+        movieRunTime: this.movieRunTimeControl
+    });
+
+    actorForm = new FormGroup({
+        movies: this.moviesControl,
+        characters: this.charactersControl,
+        actorName: this.actorNameControl,
+        actorAge: this.actorAgeControl
+    })
+
+    characterForm = new FormGroup({
+        movies: this.moviesControl,
+        actors: this.actorsControl,
+        characterName: this.characterNameControl
+    });
 
     randomPageInfo;
     randomPageType = '';
@@ -30,6 +55,22 @@ export class DashboardComponent implements OnInit {
         this.getRandomPage();
         this.getTop();
         this.getAll();
+    }
+
+    sendData(selectedPageType: String): void {
+        console.log(selectedPageType);
+        switch (selectedPageType) {
+            case 'Movie':
+                this.mcuGraphService.addMovie(this.movieTitleControl.value, this.movieRunTimeControl.value, this.actorsControl.value, this.charactersControl.value);
+                break;
+        
+            default:
+                break;
+        }
+
+        this.characterForm.reset();
+        this.actorForm.reset();
+        this.movieForm.reset();
     }
 
     getTop(): void {
