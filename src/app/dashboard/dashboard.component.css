@@ -24,6 +24,10 @@ mat-form-field{
     display: block;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 /* .colCard {
     width: 100%;
     height: 90%

@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
@@ -19,19 +19,17 @@ const httpOptions = {
     providedIn: 'root'
 })
 
-export class McuGraphService{
+export class McuGraphService {
 
     private url = '';
 
-    constructor(private http: HttpClient) { 
-        console.log('init');
-        if(environment.production){// != undefined && process.env.NODE_ENV == 'production'){
+    constructor(private http: HttpClient) {
+        if (environment.production) {// != undefined && process.env.NODE_ENV == 'production'){
             this.url = 'https://mcu-graphql-server.herokuapp.com/graphql';
         } else {
             this.url = 'http://localhost:4000/graphQL';
         }
     };
-
 
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
@@ -66,7 +64,7 @@ export class McuGraphService{
                 id
             }
         });
-        
+
 
         return this.http.post<any>(this.url, sendData, httpOptions).pipe(
             map((response) => {
@@ -78,7 +76,10 @@ export class McuGraphService{
     }
 
     addMovie(title: String, runTime: Number, actorList: [String], characterList: [String]): Observable<Movie> {
-        const sendString =`addMovie(title: title, runTime: runTime, actorList:actorList, characterList:characterList)`;
+        const sendString = 
+        `mutation($title: String, $runTime: Int, $actorList: [String], $characterList: [String]){
+            addMovie(title: $title, runTime: $runTime, actorList: $actorList, characterList: $characterList)
+        }`;
 
         const sendData = JSON.stringify({
             query: sendString,
@@ -89,14 +90,13 @@ export class McuGraphService{
                 characterList
             }
         });
-        
 
         return this.http.post<any>(this.url, sendData, httpOptions).pipe(
             map((response) => {
-                return response.data.movie;
+                return response;
             }),
-            tap(_ => console.log(`got movie`)),
-            catchError(this.handleError<Movie>(`getMovie`))
+            tap(_ => console.log(`added movie`)),
+            catchError(this.handleError<Movie>(`addMovie`))
         );
     }
 
@@ -122,7 +122,6 @@ export class McuGraphService{
         const sendData = JSON.stringify({
             query: sendString
         });
-
 
         return this.http.post<any>(this.url, sendData, httpOptions).pipe(
             map((response) => {
@@ -181,14 +180,43 @@ export class McuGraphService{
             }
         });
 
-        return this.http.post<any>(this.url, sendData, httpOptions).pipe(
+        let request = this.http.post<any>(this.url, sendData, httpOptions).pipe(
             map((response) => {
                 return response.data.actor;
             }),
             tap(_ => console.log(`got actor`)),
             catchError(this.handleError<Actor>(`getActor`))
         );
+
+        console.log('hello',request);
+        return request;
     }
+
+    addActor(name: String, age: Number, movieList: [String], characterList: [String]): Observable<Movie> {
+        const sendString = 
+        `mutation($name: String, $age: Int, $movieList: [String], $characterList: [String]){
+            addActor(name: $name, age: $age, movieList: $movieList, characterList: $characterList)
+        }`;
+
+        const sendData = JSON.stringify({
+            query: sendString,
+            variables: {
+                name,
+                age,
+                movieList,
+                characterList
+            }
+        });
+
+        return this.http.post<any>(this.url, sendData, httpOptions).pipe(
+            map((response) => {
+                return response;
+            }),
+            tap(_ => console.log(`added actor`)),
+            catchError(this.handleError<Actor>(`addActor`))
+        );
+    }
+
 
     getRandomActor(): Observable<Actor> {
         const sendString =
@@ -275,6 +303,30 @@ export class McuGraphService{
             }),
             tap(_ => console.log(`got character`)),
             catchError(this.handleError<Actor>(`getCharacter`))
+        );
+    }
+
+    addCharacter(name: String,  movieList: [String], actorList: [String]): Observable<Movie> {
+        const sendString = 
+        `mutation($name: String, $movieList: [String], $actorList: [String]){
+            addCharacter(name: $name, movieList: $movieList, actorList: $actorList)
+        }`;
+
+        const sendData = JSON.stringify({
+            query: sendString,
+            variables: {
+                name,
+                movieList,
+                actorList
+            }
+        });
+
+        return this.http.post<any>(this.url, sendData, httpOptions).pipe(
+            map((response) => {
+                return response;
+            }),
+            tap(_ => console.log(`added character`)),
+            catchError(this.handleError<Character>(`addCharacter`))
         );
     }
 

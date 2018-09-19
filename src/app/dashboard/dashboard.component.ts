@@ -13,34 +13,39 @@ export class DashboardComponent implements OnInit {
     pageTypes = ['Movie', 'Actor', 'Character'];
 
     movies;
-    moviesControl = new FormControl('', Validators.required);
     movieTitleControl = new FormControl('', Validators.required);
     movieRunTimeControl = new FormControl('', [Validators.required, Validators.min(1)]);
+    movieActorsControl = new FormControl('', Validators.required);
+    movieCharactersControl = new FormControl('', Validators.required);
+
     actors;
-    actorsControl = new FormControl('', Validators.required);
     actorNameControl = new FormControl('', Validators.required);
     actorAgeControl = new FormControl('', [Validators.required, Validators.min(1)]);
+    actorMoviesControl = new FormControl('', Validators.required);
+    actorCharactersControl = new FormControl('', Validators.required);
+
     characters;
-    charactersControl = new FormControl('', Validators.required);
     characterNameControl = new FormControl('', Validators.required);
+    characterMoviesControl = new FormControl('', Validators.required);
+    characterActorsControl = new FormControl('', Validators.required);
 
     movieForm = new FormGroup({
-        actors: this.actorsControl,
-        characters: this.charactersControl,
+        actors: this.movieActorsControl,
+        characters: this.movieCharactersControl,
         movieTitle: this.movieTitleControl,
         movieRunTime: this.movieRunTimeControl
     });
 
     actorForm = new FormGroup({
-        movies: this.moviesControl,
-        characters: this.charactersControl,
+        movies: this.actorMoviesControl,
+        characters: this.actorCharactersControl,
         actorName: this.actorNameControl,
         actorAge: this.actorAgeControl
     })
 
     characterForm = new FormGroup({
-        movies: this.moviesControl,
-        actors: this.actorsControl,
+        movies: this.characterMoviesControl,
+        actors: this.characterActorsControl,
         characterName: this.characterNameControl
     });
 
@@ -58,19 +63,32 @@ export class DashboardComponent implements OnInit {
     }
 
     sendData(selectedPageType: String): void {
-        console.log(selectedPageType);
         switch (selectedPageType) {
             case 'Movie':
-                this.mcuGraphService.addMovie(this.movieTitleControl.value, this.movieRunTimeControl.value, this.actorsControl.value, this.charactersControl.value);
+                this.mcuGraphService.addMovie(this.movieTitleControl.value, this.movieRunTimeControl.value, this.movieActorsControl.value, this.movieCharactersControl.value)
+                    .subscribe(() => {
+                        this.movieForm.reset();
+                    })
                 break;
-        
+
+            case 'Actor':
+                this.mcuGraphService.addActor(this.actorNameControl.value, this.actorAgeControl.value, this.actorMoviesControl.value, this.actorCharactersControl.value)
+                    .subscribe(() => {
+                        this.actorForm.reset();
+                    })
+                break;
+
+            case 'Character':
+                this.mcuGraphService.addCharacter(this.characterNameControl.value,  this.characterMoviesControl.value, this.characterActorsControl.value)
+                    .subscribe(() => {
+                        this.characterForm.reset();
+                    })
+                break;
+
             default:
+                console.log('default of sendData switch hit');
                 break;
         }
-
-        this.characterForm.reset();
-        this.actorForm.reset();
-        this.movieForm.reset();
     }
 
     getTop(): void {

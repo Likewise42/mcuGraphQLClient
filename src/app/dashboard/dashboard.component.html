@@ -58,16 +58,16 @@
                         <input matInput [formControl]="movieTitleControl" placeholder="Movie Title">
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput [formControl]="movieRunTimeControl" placeholder="Movie Run Time">
+                        <input type="number" matInput [formControl]="movieRunTimeControl" placeholder="Movie Run Time">
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Actors" [formControl]="actorsControl" multiple>
-                            <mat-option *ngFor="let actor of actors" [value]="actor">{{actor.name}}</mat-option>
+                        <mat-select placeholder="Actors" [formControl]="movieActorsControl" multiple>
+                            <mat-option *ngFor="let actor of actors" [value]="actor.id">{{actor.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Characters" [formControl]="charactersControl" multiple>
-                            <mat-option *ngFor="let character of characters" [value]="character">{{character.name}}</mat-option>
+                        <mat-select placeholder="Characters" [formControl]="movieCharactersControl" multiple>
+                            <mat-option *ngFor="let character of characters" [value]="character.id">{{character.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <button (click)="sendData(selectedPageType)" mat-stroked-button [disabled]="!movieForm.valid">Add Movie</button>
@@ -81,13 +81,13 @@
                         <input type="number" matInput [formControl]="actorAgeControl" placeholder="Actor Age">
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Movies" [formControl]="moviesControl" multiple>
-                            <mat-option *ngFor="let movie of movies" [value]="movie">{{movie.title}}</mat-option>
+                        <mat-select placeholder="Movies" [formControl]="actorMoviesControl" multiple>
+                            <mat-option *ngFor="let movie of movies" [value]="movie.id">{{movie.title}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Characters" [formControl]="charactersControl" multiple>
-                            <mat-option *ngFor="let character of characters" [value]="character">{{character.name}}</mat-option>
+                        <mat-select placeholder="Characters" [formControl]="actorCharactersControl" multiple>
+                            <mat-option *ngFor="let character of characters" [value]="character.id">{{character.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <button (click)="sendData(selectedPageType)" mat-stroked-button [disabled]="!actorForm.valid">Add Actor</button>
@@ -98,13 +98,13 @@
                         <input matInput [formControl]="characterNameControl" placeholder="Character Name">
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Movies" [formControl]="moviesControl" multiple>
-                            <mat-option *ngFor="let movie of movies" [value]="movie">{{movie.title}}</mat-option>
+                        <mat-select placeholder="Movies" [formControl]="characterMoviesControl" multiple>
+                            <mat-option *ngFor="let movie of movies" [value]="movie.id">{{movie.title}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Actors" [formControl]="actorsControl" multiple>
-                            <mat-option *ngFor="let actor of actors" [value]="actor">{{actor.name}}</mat-option>
+                        <mat-select placeholder="Actors" [formControl]="characterActorsControl" multiple>
+                            <mat-option *ngFor="let actor of actors" [value]="actor.id">{{actor.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <button (click)="sendData(selectedPageType)" mat-stroked-button [disabled]="!characterForm.valid">Add Character</button>
@@ -200,7 +200,7 @@
             <mat-card-title class="titleLink" *ngIf="randomPageType =='character'" routerLink="/characters/{{randomPageInfo.id}}">
                 <h1>{{randomPageInfo.name}}</h1>
             </mat-card-title>
-            <mat-card-subtitle>Random Page</mat-card-subtitle>
+            <mat-card-subtitle class="capitalize">{{randomPageType}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content *ngIf="randomPageInfo">
             <div *ngIf="randomPageInfo.runTime">

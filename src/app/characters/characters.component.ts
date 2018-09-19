@@ -19,8 +19,6 @@ export class CharactersComponent implements OnInit {
     }
 
     getAllCharacters(): void {
-        console.log('get characters');
-
         this.mcuGraphService.getAllCharacters()
         .subscribe((returnData)=>{
             this.characters = returnData;
