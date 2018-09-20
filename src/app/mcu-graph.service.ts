@@ -76,8 +76,8 @@ export class McuGraphService {
     }
 
     addMovie(title: String, runTime: Number, actorList: [String], characterList: [String]): Observable<Movie> {
-        const sendString = 
-        `mutation($title: String, $runTime: Int, $actorList: [String], $characterList: [String]){
+        const sendString =
+            `mutation($title: String, $runTime: Int, $actorList: [String], $characterList: [String]){
             addMovie(title: $title, runTime: $runTime, actorList: $actorList, characterList: $characterList)
         }`;
 
@@ -86,8 +86,8 @@ export class McuGraphService {
             variables: {
                 title,
                 runTime,
-                actorList,
-                characterList
+                actorList: actorList || [],
+                characterList: characterList || []
             }
         });
 
@@ -188,13 +188,13 @@ export class McuGraphService {
             catchError(this.handleError<Actor>(`getActor`))
         );
 
-        console.log('hello',request);
+        console.log('hello', request);
         return request;
     }
 
     addActor(name: String, age: Number, movieList: [String], characterList: [String]): Observable<Movie> {
-        const sendString = 
-        `mutation($name: String, $age: Int, $movieList: [String], $characterList: [String]){
+        const sendString =
+            `mutation($name: String, $age: Int, $movieList: [String], $characterList: [String]){
             addActor(name: $name, age: $age, movieList: $movieList, characterList: $characterList)
         }`;
 
@@ -203,8 +203,8 @@ export class McuGraphService {
             variables: {
                 name,
                 age,
-                movieList,
-                characterList
+                movieList: movieList || [],
+                characterList: characterList || []
             }
         });
 
@@ -306,9 +306,9 @@ export class McuGraphService {
         );
     }
 
-    addCharacter(name: String,  movieList: [String], actorList: [String]): Observable<Movie> {
-        const sendString = 
-        `mutation($name: String, $movieList: [String], $actorList: [String]){
+    addCharacter(name: String, movieList: [String], actorList: [String]): Observable<Movie> {
+        const sendString =
+            `mutation($name: String, $movieList: [String], $actorList: [String]){
             addCharacter(name: $name, movieList: $movieList, actorList: $actorList)
         }`;
 
@@ -316,8 +316,8 @@ export class McuGraphService {
             query: sendString,
             variables: {
                 name,
-                movieList,
-                actorList
+                movieList: movieList || [],
+                actorList: actorList || []
             }
         });
 

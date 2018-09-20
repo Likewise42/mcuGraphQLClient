@@ -14,20 +14,20 @@ export class DashboardComponent implements OnInit {
 
     movies;
     movieTitleControl = new FormControl('', Validators.required);
-    movieRunTimeControl = new FormControl('', [Validators.required, Validators.min(1)]);
-    movieActorsControl = new FormControl('', Validators.required);
-    movieCharactersControl = new FormControl('', Validators.required);
+    movieRunTimeControl = new FormControl('', [Validators.required, Validators.min(1), Validators.max(1000)]);
+    movieActorsControl = new FormControl('');
+    movieCharactersControl = new FormControl('');
 
     actors;
     actorNameControl = new FormControl('', Validators.required);
-    actorAgeControl = new FormControl('', [Validators.required, Validators.min(1)]);
-    actorMoviesControl = new FormControl('', Validators.required);
-    actorCharactersControl = new FormControl('', Validators.required);
+    actorAgeControl = new FormControl('', [Validators.required, Validators.min(1), Validators.max(1000)]);
+    actorMoviesControl = new FormControl('');
+    actorCharactersControl = new FormControl('');
 
     characters;
     characterNameControl = new FormControl('', Validators.required);
-    characterMoviesControl = new FormControl('', Validators.required);
-    characterActorsControl = new FormControl('', Validators.required);
+    characterMoviesControl = new FormControl('');
+    characterActorsControl = new FormControl('');
 
     movieForm = new FormGroup({
         actors: this.movieActorsControl,
@@ -67,6 +67,7 @@ export class DashboardComponent implements OnInit {
             case 'Movie':
                 this.mcuGraphService.addMovie(this.movieTitleControl.value, this.movieRunTimeControl.value, this.movieActorsControl.value, this.movieCharactersControl.value)
                     .subscribe(() => {
+                        this.getAll();
                         this.movieForm.reset();
                     })
                 break;
@@ -74,6 +75,7 @@ export class DashboardComponent implements OnInit {
             case 'Actor':
                 this.mcuGraphService.addActor(this.actorNameControl.value, this.actorAgeControl.value, this.actorMoviesControl.value, this.actorCharactersControl.value)
                     .subscribe(() => {
+                        this.getAll();
                         this.actorForm.reset();
                     })
                 break;
@@ -81,6 +83,7 @@ export class DashboardComponent implements OnInit {
             case 'Character':
                 this.mcuGraphService.addCharacter(this.characterNameControl.value,  this.characterMoviesControl.value, this.characterActorsControl.value)
                     .subscribe(() => {
+                        this.getAll();
                         this.characterForm.reset();
                     })
                 break;

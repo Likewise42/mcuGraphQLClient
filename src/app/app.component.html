@@ -1,19 +1,5 @@
-<!-- <mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <a routerLink="dashboard">MCU Test</a>
-        <span class="spacer"></span>
-        <a class="nav-link" routerLink="dashboard">Dashboard</a>
-        <a class="nav-link" routerLink="movies">Movies</a>
-        <a class="nav-link" routerLink="actors">Actors</a>
-        <a class="nav-link" routerLink="characters">Characters</a>
-    </mat-toolbar-row>
-</mat-toolbar>
-
-<div class="toolbarStandIn"></div>
-
-<router-outlet></router-outlet> -->
 <!-- Modified From Tomasz Chudzik from https://stackoverflow.com/questions/43200545/create-a-responsive-toolbar-using-angular-material*/ -->
-<div style="height: 100vh">
+<div class="bodyDiv" style="height: 100vh">
     <mat-toolbar color="primary">
         <div fxShow="true" fxHide.gt-sm="true">
             <button mat-icon-button (click)="sidenav.toggle()">
